@@ -1,0 +1,85 @@
+.progressBarContainer {
+    background-color: var(--button-background);
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    .progress-bar-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        gap: 2em;
+
+        .filling-bar-container {
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+
+            &.progress-bar-active {
+                &::before {
+                    content: '';
+                    width: 100vw;
+                    height: 1em;
+                    position: absolute;
+                    background-color: var(--primary-base-color);
+                    border-radius: inherit;
+                    transform: translate(-50%);
+                    animation: 0.8s ease-in forwards fill;
+
+                    @keyframes fill {
+                        0% {
+                            width: 0%;
+                            display: block;
+                        }
+
+                        100% {
+                            width: 100vw;
+                        }
+                    }
+                }
+            }
+        }
+
+        .step-info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 12px;
+            max-width: 65px;
+            height: 65px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.08);
+            border-radius: 50%;
+            transition: background-color 1s ease-in;
+
+            &.active-progress-bar-info {
+                animation: 0.5s ease-in forwards fillText;
+
+                p {
+                    color: white;
+                }
+            }
+
+            p {
+                text-transform: capitalize;
+                font-size: inherit;
+            }
+
+            @keyframes fillText {
+                100% {
+                    color: white;
+                    background-color: var(--primary-base-color);
+                }
+            }
+        }
+    }
+}
