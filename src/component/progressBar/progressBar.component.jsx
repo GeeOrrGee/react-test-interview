@@ -29,13 +29,15 @@ export class ProgressBarComponent extends PureComponent {
                                         }`}
                                     ></div>
                                     {stepsArr.length === index + 1 ? null : (
-                                        <div
-                                            className={`step-info-container ${
-                                                isActive &&
-                                                'active-progress-bar-info'
-                                            }`}
-                                        >
-                                            <span>{index + 1}</span>
+                                        <div className={`step-info-container`}>
+                                            <span
+                                                className={`${
+                                                    isActive &&
+                                                    'active-progress-bar-span'
+                                                }`}
+                                            >
+                                                {index + 1}
+                                            </span>
                                             <p>{currentStepName}</p>
                                         </div>
                                     )}

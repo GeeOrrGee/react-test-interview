@@ -54,16 +54,23 @@
             justify-content: space-around;
             align-items: center;
             font-size: 12px;
-            max-width: 65px;
-            height: 65px;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.08);
-            border-radius: 50%;
-            transition: background-color 1s ease-in;
+            position: relative;
+
+            span {
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.08);
+                width: 40px;
+                height: 40px;
+                padding: 12px 15px;
+                border-radius: 50%;
+                transition: background-color 1s ease-in;
+
+                &.active-progress-bar-span {
+                    animation: 0.5s ease-in forwards fillText;
+                }
+            }
 
             &.active-progress-bar-info {
-                animation: 0.5s ease-in forwards fillText;
-
                 p {
                     color: white;
                 }
@@ -72,6 +79,10 @@
             p {
                 text-transform: capitalize;
                 font-size: inherit;
+                position: absolute;
+                left: 50%;
+                top: 105%;
+                transform: translate(-50%);
             }
 
             @keyframes fillText {
